@@ -47,7 +47,7 @@ test-once:
 	${BIN}/karma start --single-run --reporters progress --log-level error
 	@$(PRINT_OK)
 
-lint:
+lint: src/**/*.js
 	${BIN}/eslint src --ext .js,.jsx
 	@$(PRINT_OK)
 
@@ -67,11 +67,11 @@ clean-deps:
 	@$(PRINT_OK)
 
 update:
+	${BIN}/npm-check-updates
+	@$(PRINT_OK)
+
+upgrade:
 	${BIN}/npm-check-updates -u
 	@$(PRINT_OK)
 
-upgrade: update test-once
-	@$(PRINT_OK)
-
 .PHONY: install start server build dist prepare test test-once lint flow clean clean-dist clean-deps update upgrade
-# .SILENT:

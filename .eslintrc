@@ -9,7 +9,7 @@
     "no-loop-func": [0],
     "new-cap": [0],
     "key-spacing": [0],
-    "max-len": [2],
+    "max-len": [2, 120, 2],
     "strict": [0],
     "indent": [
       2,
@@ -17,7 +17,7 @@
     ],
     "quotes": [
       2,
-      "single",
+      "double",
       "avoid-escape"
     ],
     "curly": [0],
@@ -43,6 +43,12 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true,
+    "phantomjs": true,
+
+  },
+  "globals": {
+    "expect": true
   }
 }

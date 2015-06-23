@@ -1,12 +1,18 @@
-import React from 'react/addons';
-import FatRow from '../../components/FatRow';
+/* @flow */
+
+import React from "react/addons";
+import FatRow from "../../components/FatRow";
 
 class Home extends React.Component {
-  render() {
-    var items = [{title: 'Item One'}, {title: 'Item Two'}];
+  render(): React.Element {
+    var items = [{title: "Item One"}, {title: "Item Two"}];
+    // var elems = items.map((item) => {
+    //   return <FatRow key={item.title} title={item.title} />;
+    // });
+
     return (
       <div>
-      { items.map(item => <FatRow key={item.title} title={item.title} />) }
+        <h1>12Title</h1>
       </div>
     );
   }

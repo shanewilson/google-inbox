@@ -1,9 +1,11 @@
-import React from 'react/addons';
-import Router from 'react-router';
-const { DefaultRoute, Route, NotFoundRoute } = Router;
+/* @flow */
 
-import App from './app.jsx';
-import Home from './views/pages/home.jsx';
+import React from "react/addons";
+import Router from "react-router";
+var { DefaultRoute, Route, NotFoundRoute } = Router;
+
+import App from "./app.jsx";
+import Home from "./views/pages/home.jsx";
 
 export default (
     <Route path="/" handler={App}>

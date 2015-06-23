@@ -1,13 +1,16 @@
-'use strict';
+"use strict";
 
-var path = require('path');
+var path = require("path");
+var webpack = require("webpack");
 
-var config = require('./webpack.base.config.js');
+var config = require("./webpack.base.config.js");
 
-config.devtool = 'eval';
+config.devtool = "eval";
+
 config.devServer = {
-  contentBase: 'src',
+  contentBase: "src",
   https: false,
+  hot: true,
   stats: {
     colors: true,
     chunks: false,
@@ -17,7 +20,12 @@ config.devServer = {
 };
 
 config.module.loaders = config.module.loaders.concat([
-  {test: /\.jsx?$/, loaders: ['react-hot', 'babel'], include: path.join(__dirname, 'src')}
+  {test: /\.jsx?$/, loaders: ["react-hot", "babel"], include: path.join(__dirname, "src")}
 ]);
+
+config.plugins = [
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin()
+];
 
 module.exports = config;

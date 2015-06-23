@@ -1,26 +1,26 @@
-'use strict';
+"use strict";
 
-var minify = require('html-minifier').minify;
-var webpack = require('webpack');
-var CompressionPlugin = require('compression-webpack-plugin');
+var minify = require("html-minifier").minify;
+var webpack = require("webpack");
+var CompressionPlugin = require("compression-webpack-plugin");
 
-var config = require('./webpack.base.config.js');
+var config = require("./webpack.base.config.js");
 
 config.bail = true;
 config.debug = false;
 config.profile = false;
 config.output = {
-  path: './dist/js',
+  path: "./dist/js",
   pathInfo: false,
-  publicPath: '/js/',
-  filename: '[name].[hash].min.js',
-  chunkFilename: '[id].js'
+  publicPath: "/js/",
+  filename: "[name].[hash].min.js",
+  chunkFilename: "[id].js"
 };
 config.plugins = config.plugins.concat([
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
     mangle: {
-      except: ['require', 'export', '$super']
+      except: ["require", "export", "$super"]
     },
     compress: {
       warnings: false,
@@ -35,8 +35,8 @@ config.plugins = config.plugins.concat([
     }
   }),
   new CompressionPlugin({
-    asset: '{file}.gz',
-    algorithm: 'gzip',
+    asset: "{file}.gz",
+    algorithm: "gzip",
     regExp: /\.js$|\.html$/,
     threshold: 10240,
     minRatio: 0.8
@@ -46,8 +46,8 @@ config.plugins = config.plugins.concat([
 config.revFiles = function(data, files) {
 
   files.forEach(function(file) {
-    var path = file.name.split('.');
-    data = data.replace(path[0] + '.' + path[path.length - 1], file.name);
+    var path = file.name.split(".");
+    data = data.replace(path[0] + "." + path[path.length - 1], file.name);
   });
 
   return minify(data, {

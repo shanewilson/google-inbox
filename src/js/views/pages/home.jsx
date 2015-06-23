@@ -5,14 +5,10 @@ import FatRow from "../../components/FatRow";
 
 class Home extends React.Component {
   render(): React.Element {
-    var items = [{title: "Item One"}, {title: "Item Two"}];
-    // var elems = items.map((item) => {
-    //   return <FatRow key={item.title} title={item.title} />;
-    // });
-
+    var items = [{title: "Item One1"}, {title: "Item Two"}];
     return (
       <div>
-        <h1>12Title</h1>
+      { items.map(item => <FatRow key={item.title} title={item.title} />) }
       </div>
     );
   }

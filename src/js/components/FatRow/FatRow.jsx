@@ -21,4 +21,4 @@ FatRow.propTypes = {
   title: React.PropTypes.string.isRequired
 };
 
-export default sum;
+export default FatRow;

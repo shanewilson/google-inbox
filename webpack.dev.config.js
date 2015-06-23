@@ -10,7 +10,6 @@ config.devtool = "eval";
 config.devServer = {
   contentBase: "src",
   https: false,
-  hot: true,
   stats: {
     colors: true,
     chunks: false,
@@ -24,7 +23,6 @@ config.module.loaders = config.module.loaders.concat([
 ]);
 
 config.plugins = [
-  new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin()
 ];
 

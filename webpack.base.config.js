@@ -32,9 +32,9 @@ module.exports = {
   },
   resolve: {
     extentions: ["", "js", "jsx"],
-    alias: {
-      react: path.resolve("./node_modules/react")
-    }
+    // alias: {
+    //   react: path.resolve("./node_modules/react")
+    // }
   },
   plugins: [
     new webpack.DefinePlugin({

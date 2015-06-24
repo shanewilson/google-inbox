@@ -38,11 +38,18 @@ dist: prepare build
 prepare: lint flow test-once
 	@$(PRINT_OK)
 
+travis: lint flow sauce
+	@$(PRINT_OK)
+
 test:
 	$(Q) karma start
 
 test-once:
 	$(Q) karma start --single-run --reporters progress --log-level error $(NIL)
+	@$(PRINT_OK)
+
+sauce:
+	$(Q) karma start karma.conf-ci.js
 	@$(PRINT_OK)
 
 lint:

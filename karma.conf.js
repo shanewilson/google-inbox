@@ -59,4 +59,6 @@ module.exports = function (config) {
     webpack: webpackConfig,
     webpackMiddleware: webpackConfig.devServer
   });
+
+  return config;
 };

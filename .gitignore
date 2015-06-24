@@ -29,3 +29,6 @@ build/Release
 node_modules
 
 dist/
+coverage/
+sauce.json
+sauce_connect.log

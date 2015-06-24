@@ -2,6 +2,8 @@ language: node_js
 node_js:
 - 0.12
 sudo: false
+notifications:
+  email: false
 cache:
   directories:
   - node_modules
@@ -13,7 +15,7 @@ before_install:
 install:
 - npm install
 script:
-- npm test
+- npm run travis
 addons:
   sauce_connect: true
 env:

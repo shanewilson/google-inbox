@@ -1,6 +1,12 @@
-SHELL = /bin/bash
-
 PROJECT = "Google Inbox"
+
+PATH  := node_modules/.bin:$(PATH)
+SHELL := /bin/bash
+
+ifndef VERBOSE
+	Q := @
+	NIL := > /dev/null 2>&1
+endif
 
 NODE_ENV ?= development
 
@@ -12,26 +18,18 @@ PRINT_OK = printf "$@ $(OK_STRING)\n" | $(AWK_CMD)
 NODE_ENV_STRING = $(OK_COLOR)[$(NODE_ENV)]$(NO_COLOR)
 PRINT_ENV = printf "$@ $(NODE_ENV_STRING)\n" | $(AWK_CMD)
 
-NM = ./node_modules
-BIN = ${NM}/.bin
-DIST = ./dist
-SCRIPTS = ./scripts
-
-
 all: install dist
 
-start: test server
-
 server:
-	${BIN}/webpack-dev-server --config webpack.dev.config.js --hot -d
+	$(Q) webpack-dev-server --config webpack.dev.config.js --inline --hot -d
 
 install:
-	npm install --loglevel error
+	$(Q) npm install --loglevel error
 	@$(PRINT_OK)
 
 build: clean-dist
 	@$(PRINT_ENV)
-	${BIN}/webpack
+	$(Q) webpack $(NIL)
 	@$(PRINT_OK)
 
 dist: prepare build
@@ -41,37 +39,37 @@ prepare: lint flow test-once
 	@$(PRINT_OK)
 
 test:
-	${BIN}/karma start
+	$(Q) karma start
 
 test-once:
-	${BIN}/karma start --single-run --reporters progress --log-level error
+	$(Q) karma start --single-run --reporters progress --log-level error $(NIL)
 	@$(PRINT_OK)
 
-lint: src/**/*.js
-	${BIN}/eslint src --ext .js,.jsx
+lint:
+	$(Q) eslint src --ext .js,.jsx
 	@$(PRINT_OK)
 
 flow:
-	${SCRIPTS}/lint.sh && flow src
+	$(Q) scripts/flow-annotation-check.sh && flow check src
 	@$(PRINT_OK)
 
 clean: clean-dist clean-deps
 	@$(PRINT_OK)
 
 clean-dist:
-	rm -rf ${DIST}
+	$(Q) rm -rf dist
 	@$(PRINT_OK)
 
 clean-deps:
-	rm -rf ${NM}
+	$(Q) rm -rf node_modules
 	@$(PRINT_OK)
 
 update:
-	${BIN}/npm-check-updates
+	$(Q) npm-check-updates
 	@$(PRINT_OK)
 
 upgrade:
-	${BIN}/npm-check-updates -u
+	$(Q) npm-check-updates -u
 	@$(PRINT_OK)
 
 .PHONY: install start server build dist prepare test test-once lint flow clean clean-dist clean-deps update upgrade

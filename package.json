@@ -57,7 +57,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "start": "make -j start",
-    "test": "make test-once"
+    "start": "make -j test server",
+    "test": "make prepare"
   }
 }

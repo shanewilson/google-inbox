@@ -46,7 +46,7 @@ module.exports = function(config) {
     type: 'lcov',
     dir: 'coverage/'
   }
-  karmaConfig.logLevel = config.LOG_DEBUG;
+  karmaConfig.logLevel = config.LOG_INFO;
   // Increase timeout in case connection in CI is slow
   karmaConfig.captureTimeout = 120000;
   karmaConfig.customLaunchers = customLaunchers;

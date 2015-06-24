@@ -4,8 +4,7 @@ engines:
 
 ratings: #Specifies which files/paths will be graded.
   paths:
-    - "src/**/*.jsx?"
-    - "src/*.jsx?"
+    - "src/*"
 
 exclude_paths: #Paths that you want excluded from our analysis.
   - "src/**/*.test.js"

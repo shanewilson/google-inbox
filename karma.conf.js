@@ -1,3 +1,7 @@
+/* eslint-disable */
+
+"use strict";
+
 var path = require("path");
 var webpackConfig = require("./webpack.dev.config");
 
@@ -17,8 +21,12 @@ module.exports = function (config) {
     // karma only needs to know about the test bundle
     files: [
       "./node_modules/phantomjs-polyfill/bind-polyfill.js",
-      "src/tests.bundle.js"
+      "tests.webpack.js"
     ],
+    // run the bundle through the webpack and sourcemap plugins
+    preprocessors: {
+      "tests.webpack.js": [ "webpack", "sourcemap" ]
+    },
     frameworks: [ "chai-sinon", "mocha" ],
     plugins: [
       "karma-phantomjs-launcher",
@@ -29,10 +37,6 @@ module.exports = function (config) {
       "karma-webpack",
       "karma-coverage"
     ],
-    // run the bundle through the webpack and sourcemap plugins
-    preprocessors: {
-      "src/tests.bundle.js": [ "webpack", "sourcemap" ]
-    },
     colors: true,
     autoWatch: true,
     singleRun: false,

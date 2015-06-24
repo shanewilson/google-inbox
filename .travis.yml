@@ -1,3 +1,21 @@
 language: node_js
-node_js: 0.12
-cache: npm
+node_js:
+- 0.12
+sudo: false
+cache:
+  directories:
+  - node_modules
+  - bower_components
+before_install:
+- npm config set spin false
+- npm install -g npm@^2
+- npm --version
+install:
+- npm install
+script:
+- npm test
+addons:
+  sauce_connect:
+    username: shanewilson
+    access_key:
+      secure: APz5K9CZsinB+EY23sm1LD57r7Z34ZA+fGsWCl7Xsy4YY2uXGTBPr6oM953XyJtUG18J4ne/fXLFfDl2VfvyZaVxcovxCmfCWsAUQNqYkx+tfg21xAUPkBiNfbI1lNYF+BUzgZfos/J+KlmdgbePXlbr+Qu3l9x1qA3Hg7jVZyFcsmpwo6cDeTRKTMNvLfNJhGyw4IQ+NfIf7iYPO8HFdkiykK43WeqQCsBrJ8NlksKR6eBk2Dd8/YMTa02xWh3HRvXMEb4icNLnzOAQTK4sEGpfweXR5oWs2UOno9h9XE1F2Sm2lCLMqkNQEyv3GnHYGLSPXveZm7CeA3XS4vAyo1oH2O1zQ0/q6GcEFTNYJZbYeKV/sR3zrTstkk1NR4mJ2aSa+bZBK3q0f5tTb4Iq2BZIVs9feTNEI2Eaig7SGZVbgIV8Yi8Q8sUvbJszooAroqITFhJHC3Z1ZSCRMU+OUgX2r+DcKkHKja5sU2VYoqhfm+704BQOVeshCIQPpl0LmuhYbEpq/VFjLX6I6w5X8hw2/W7nrIg9vcN3NvgnzgZoL7uxo/x1adCm+gAgVLhHAFGTFIP4zGKbqE41yAkCct9iMdJfNchqEOmsyOk/APHT7+vNnaNrdodGs8pRtNkdUwAObd9jdvbGhrv/8PN7/o1yhsADqXkhuPQTIrqYkwY=

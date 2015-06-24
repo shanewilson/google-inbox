@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use strict";
 
 var minify = require("html-minifier").minify;

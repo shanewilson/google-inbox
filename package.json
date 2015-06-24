@@ -59,6 +59,6 @@
   },
   "scripts": {
     "start": "make -j test server",
-    "test": "make prepare"
+    "test": "make VERBOSE=1 prepare"
   }
 }

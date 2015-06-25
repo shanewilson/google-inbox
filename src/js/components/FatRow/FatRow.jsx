@@ -14,7 +14,13 @@ class FatRow extends React.Component {
     return x;
   };
 
+  someFunc2(): number {
+    var x = 1;
+    return x;
+  };
+
   render(): React.Element {
+    var x = this.someFunc();
     return (
       <li>{this.props.title}</li>
     );

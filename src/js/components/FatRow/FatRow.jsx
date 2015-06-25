@@ -8,6 +8,8 @@ import React from "react/addons";
 
 //sum([1, 2, "c"]);
 
+var a = 1;
+
 class FatRow extends React.Component {
   render(): React.Element {
     return (

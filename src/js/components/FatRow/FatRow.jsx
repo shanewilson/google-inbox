@@ -9,6 +9,11 @@ import React from "react/addons";
 //sum([1, 2, "c"]);
 
 class FatRow extends React.Component {
+  someFunc(): number {
+    var x = 1;
+    return x;
+  };
+
   render(): React.Element {
     return (
       <li>{this.props.title}</li>

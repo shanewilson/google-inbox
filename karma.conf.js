@@ -9,10 +9,10 @@ webpackConfig.module.preLoaders = [
      // transpile and instrument testing files with isparta
      {
          test: /\.jsx?$/,
-         include: path.resolve("src/"),
+         include: path.join(__dirname, "src"),
          loader: "isparta-instrumenter"
      }
-];
+].concat(webpackConfig.module.preLoaders);
 webpackConfig.devServer.noInfo = true;
 
 module.exports = function (config) {
@@ -34,8 +34,7 @@ module.exports = function (config) {
       "karma-mocha",
       "karma-mocha-reporter",
       "karma-sourcemap-loader",
-      "karma-webpack",
-      "karma-coverage"
+      "karma-webpack"
     ],
     colors: true,
     autoWatch: true,
@@ -46,11 +45,8 @@ module.exports = function (config) {
     // LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: config.LOG_INFO,
 
-    reporters: ["mocha", "coverage"],
-    coverageReporter: {
-        type: "html",
-        dir: "coverage/"
-    },
+    reporters: ["mocha"],
+
     // reporter options
     mochaReporter: {
       output: "autowatch"

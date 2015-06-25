@@ -33,7 +33,7 @@ module.exports = function(config) {
     }
   };
   karmaConfig.reporters = ['progress', 'coverage', 'saucelabs'];
-  karmaConfig.plugins.push("karma-sauce-launcher");
+  karmaConfig.plugins.push("karma-sauce-launcher", "karma-coverage");
   karmaConfig.sauceLabs = {
     testName: 'Karma and Sauce Labs demo',
     recordScreenshots: false,
@@ -43,8 +43,8 @@ module.exports = function(config) {
     }
   };
   karmaConfig.coverageReporter = {
-    type: 'lcov',
-    dir: 'coverage/'
+    type: 'lcovonly',
+    file: 'lcov.info'
   }
   karmaConfig.logLevel = config.LOG_INFO;
   // Increase timeout in case connection in CI is slow

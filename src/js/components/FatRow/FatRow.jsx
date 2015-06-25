@@ -6,7 +6,7 @@ import React from "react/addons";
 //  return 1;
 //}
 
-//sum([1, 2, "c"]);
+//sum([1, 2, c]);
 
 class FatRow extends React.Component {
 
@@ -26,8 +26,6 @@ class FatRow extends React.Component {
   };
 
   render(): React.Element {
-    var x = this.someFunc();
-    var y = this.someFunc2();
     return (
       <li>{this.props.title}</li>
     );

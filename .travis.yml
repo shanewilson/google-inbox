@@ -13,14 +13,16 @@ before_install:
 install:
 - npm install
 script:
-- npm run travis
+- npm test
+# - npm run travis
 after_script:
-- npm install codeclimate-test-reporter codecov.io
-- ./node_modules/.bin/codeclimate < coverage/lcov.info
+# - npm install codeclimate-test-reporter
+- npm install codecov.io
+# - ./node_modules/.bin/codeclimate < coverage/lcov.info
 - ./node_modules/.bin/codecov < coverage/lcov.info
-addons:
-  sauce_connect: true
-  code_climate: true
+# addons:
+#   sauce_connect: true
+#   code_climate: true
 env:
   global:
   - secure: MhnrJxNUW7pxzzBlWaneF79bNX1JIAkb/5CBk/6etKIjNrhhRc5LCbJalb5kYxBfXzb1ky3L35+/GewaT6P6kHnAvaP6UrIm4VEyL3vPkwaQ7FNaQnKd/JbksBXVxKfnMYBVBiF7MVuCGSDD4ZIzkHl04Ah/lzv6caM+zkbrG1QxKBV7LTlQ6V4KCuFYzXyKUGBE2nV7YanNInQd3f8EOUepMfflsoPOosl+QWHcElv2vjj9pHiQe+t7++DtwOveV937rQ0z9BX4whoNRTpuaMANb2siMp/M9mdYShCElp1MCzi9eTP1fdUS8tsqrHwpXG0NO8SbkFpPBok8O5zogqcOn6gC3xnN5eNHuC5rmaENHVprRvxWoLXfNMvvDsmCZ4QKGFLj245N8cPvVGLrZHla+wvV2iELdbPN8crDgzBvx7KluNYDmC9VhUGTdgqKyPK0GU75NkTlLYoJB+nvlW1xpT2jMjNNsrs+b6eKFwRL+Z80GbfKzMefEU12jRIV2l/gN4Hy4OJw9OGRrXhZ4QprExsl0WLcs+EmqopdWRnE+00l2tTUhvRxIWwFPBs2vWdaXZ7eLuiap3ZSaltTBbjXPkJOUvAGGYDNj7B7PWulUsB50R6LNqLyxUVobqIe10RHoDoO4YdaJV4F9WDdrndeHC4eTZ0FMnkJv0j9v7k=

@@ -1,12 +1,12 @@
 {
-  "name": "react-webpack-example",
+  "name": "google-inbox",
   "private": true,
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shanewilson/react-webpack-example.git"
+    "url": "https://github.com/shanewilson/google-inbox.git"
   },
-  "homepage": "https://github.com/shanewilson/react-webpack-example",
+  "homepage": "https://github.com/shanewilson/google-inbox",
   "author": {
     "name": "Shane Wilson",
     "email": "shanezilla@gmail.com",

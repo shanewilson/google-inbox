@@ -20,7 +20,9 @@ class FatRow extends React.Component {
     return x;
   };
 
-  someFunc3() {};
+  someFunc3() {
+    var a = 1;
+  };
 
   render(): React.Element {
     var x = this.someFunc();

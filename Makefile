@@ -72,11 +72,11 @@ clean-deps:
 	@$(PRINT_OK)
 
 update:
-	$(Q) npm-check-updates
+	$(Q) david
 	@$(PRINT_OK)
 
 upgrade:
-	$(Q) npm-check-updates -u
+	$(Q) david update
 	@$(PRINT_OK)
 
 .PHONY: install start server build dist prepare test test-once lint flow clean clean-dist clean-deps update upgrade

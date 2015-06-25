@@ -1,0 +1,8 @@
+engines:
+  eslint:
+    enabled: true
+#ratings: #Specifies which files/paths will be graded.
+#  paths:
+#    - "src/*"
+#exclude_paths: #Paths that you want excluded from our analysis.
+#  - "src/**/*.test.js"

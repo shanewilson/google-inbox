@@ -28,8 +28,7 @@ module.exports = function(config) {
     },
     'SL_Firefox': {
       base: 'SauceLabs',
-      browserName: 'firefox',
-      version: '26'
+      browserName: 'firefox'
     }
   };
   karmaConfig.reporters = ['progress', 'coverage', 'saucelabs'];
@@ -43,8 +42,10 @@ module.exports = function(config) {
     }
   };
   karmaConfig.coverageReporter = {
-    type: 'lcovonly',
-    file: 'lcov.info'
+    dir: 'coverage',
+    reporters: [
+      { type: 'lcovonly', subdir: '.', file: 'lcov.info' }
+    ]
   }
   karmaConfig.logLevel = config.LOG_INFO;
   // Increase timeout in case connection in CI is slow

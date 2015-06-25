@@ -8,4 +8,3 @@ ratings: #Specifies which files/paths will be graded.
     - "src/*"
 exclude_paths: #Paths that you want excluded from our analysis.
   - "src/**/*.test.js"
-  - "src/tests.bundle.js"

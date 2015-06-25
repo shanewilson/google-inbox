@@ -60,7 +60,7 @@
   },
   "scripts": {
     "start": "make -j test server",
-    "test": "make VERBOSE=1 prepare",
-    "travis": "make VERBOSE=1 travis"
+    "test": "make prepare",
+    "travis": "make travis"
   }
 }

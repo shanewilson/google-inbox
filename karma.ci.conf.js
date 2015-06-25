@@ -2,10 +2,11 @@
 
 "use strict";
 
+var path = require("path");
 var fs = require("graceful-fs");
 
 module.exports = function(config) {
-  var karmaConfig = require("./karma.conf")(config);
+  var karmaBaseConfig = require("./karma.base.conf")(config);
 
   // Use ENV vars on Travis and sauce.json locally to get credentials
   if (!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY) {
@@ -31,9 +32,9 @@ module.exports = function(config) {
       browserName: 'firefox'
     }
   };
-  karmaConfig.reporters = ['progress', 'coverage', 'saucelabs'];
-  karmaConfig.plugins.push("karma-sauce-launcher", "karma-coverage");
-  karmaConfig.sauceLabs = {
+  karmaBaseConfig.reporters = ['progress', 'coverage', 'saucelabs'];
+  karmaBaseConfig.plugins.push("karma-sauce-launcher", "karma-coverage");
+  karmaBaseConfig.sauceLabs = {
     testName: 'Karma and Sauce Labs demo',
     recordScreenshots: false,
     connectOptions: {
@@ -41,20 +42,29 @@ module.exports = function(config) {
       logfile: 'sauce_connect.log'
     }
   };
-  karmaConfig.coverageReporter = {
+  karmaBaseConfig.coverageReporter = {
     dir: 'coverage',
     reporters: [
       { type: 'lcovonly', subdir: '.', file: 'lcov.info' }
     ]
-  }
-  karmaConfig.logLevel = config.LOG_INFO;
+  };
   // Increase timeout in case connection in CI is slow
-  karmaConfig.captureTimeout = 120000;
-  karmaConfig.customLaunchers = customLaunchers;
-  karmaConfig.browsers = Object.keys(customLaunchers);
-  karmaConfig.singleRun = true;
+  karmaBaseConfig.captureTimeout = 120000;
+  karmaBaseConfig.customLaunchers = customLaunchers;
+  karmaBaseConfig.browsers = Object.keys(customLaunchers);
+  karmaBaseConfig.singleRun = true;
 
-  config.set(karmaConfig);
+  karmaBaseConfig.webpack.module.preLoaders = [
+       // transpile and instrument testing files with isparta
+       {
+           test: /\.jsx?$/,
+           include: path.join(__dirname, "src"),
+           exclude: /test.js$/,
+           loader: "isparta-instrumenter"
+       }
+  ].concat(karmaBaseConfig.webpack.module.preLoaders);
+
+  config.set(karmaBaseConfig);
 
   return config;
 };

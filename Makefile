@@ -42,22 +42,22 @@ travis: lint flow sauce
 	@$(PRINT_OK)
 
 test:
-	$(Q) karma start
+	karma start karma.watch.conf.js
 
 test-once:
-	$(Q) karma start --single-run --reporters progress --log-level error
+	karma start karma.single.conf.js
 	@$(PRINT_OK)
 
 sauce:
-	$(Q) karma start karma.conf-ci.js
+	karma start karma.ci.conf.js
 	@$(PRINT_OK)
 
 lint:
-	$(Q) eslint src --ext .js,.jsx
+	eslint src --ext .js,.jsx
 	@$(PRINT_OK)
 
 flow:
-	$(Q) scripts/flow-annotation-check.sh && flow check src
+	scripts/flow-annotation-check.sh && flow check src
 	@$(PRINT_OK)
 
 clean: clean-dist clean-deps

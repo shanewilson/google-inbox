@@ -21,6 +21,7 @@ module.exports = function (config) {
     // karma only needs to know about the test bundle
     files: [
       "./node_modules/phantomjs-polyfill/bind-polyfill.js",
+      // "tests.jsdom.js",
       "tests.webpack.js"
     ],
     // run the bundle through the webpack and sourcemap plugins

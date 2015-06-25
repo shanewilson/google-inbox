@@ -29,7 +29,7 @@ install:
 
 build: clean-dist
 	@$(PRINT_ENV)
-	$(Q) webpack $(NIL)
+	$(Q) webpack
 	@$(PRINT_OK)
 
 dist: prepare build
@@ -45,7 +45,7 @@ test:
 	$(Q) karma start
 
 test-once:
-	$(Q) karma start --single-run --reporters progress --log-level error $(NIL)
+	$(Q) karma start --single-run --reporters progress --log-level error
 	@$(PRINT_OK)
 
 sauce:

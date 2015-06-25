@@ -34,6 +34,7 @@ module.exports = {
   },
   resolve: {
     extentions: ["", "js", "jsx"],
+    modulesDirectories: ["web_modules", "node_modules", "components"]
     // alias: {
     //   react: path.resolve("./node_modules/react")
     // }

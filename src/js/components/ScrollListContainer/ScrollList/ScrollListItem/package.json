@@ -1,0 +1,6 @@
+{
+  "name": "ScrollListItem",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ScrollListItem.jsx"
+}

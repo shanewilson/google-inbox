@@ -5,10 +5,10 @@ import Router from "react-router";
 var { DefaultRoute, Route, NotFoundRoute } = Router;
 
 import App from "./app.jsx";
-import Home from "./views/pages/home.jsx";
+import Timeline from "./views/pages/timeline.jsx";
 
 export default (
     <Route path="/" handler={App}>
-      <DefaultRoute name="home" handler={Home}/>
+      <DefaultRoute name="timeline" handler={Timeline}/>
     </Route>
 );

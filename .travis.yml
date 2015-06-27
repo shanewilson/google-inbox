@@ -13,14 +13,13 @@ before_install:
 install:
 - npm install
 script:
-- npm test
-# - npm run travis
+- npm run travis
 after_script:
 - npm install codeclimate-test-reporter codecov.io
 - ./node_modules/.bin/codeclimate < coverage/lcov.info
 - ./node_modules/.bin/codecov < coverage/lcov.info
 addons:
-#   sauce_connect: true
+  sauce_connect: true
   code_climate: true
 env:
   global:

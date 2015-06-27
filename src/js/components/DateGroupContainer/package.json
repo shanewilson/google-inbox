@@ -1,0 +1,6 @@
+{
+  "name": "DateGroupContainer",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DateGroupContainer.jsx"
+}

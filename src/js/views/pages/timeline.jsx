@@ -2,9 +2,10 @@
 
 import React from "react";
 import moment from "moment";
+import Raven from "raven-js";
 
 import DateGroupContainer from "../../components/DateGroupContainer";
-import ScrollListContainer from "../../components/ScrollListContainer";
+import ScrollListContainer from "../../containers/ScrollListContainer";
 
 class Timeline extends React.Component {
   render(): React.Element {

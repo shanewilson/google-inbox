@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from "react/addons";
+import React from "react";
 import Router from "react-router";
 var { DefaultRoute, Route, NotFoundRoute } = Router;
 

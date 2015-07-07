@@ -42,14 +42,14 @@ travis: lint flow sauce
 	@$(PRINT_OK)
 
 test:
-	karma start karma.watch.conf.js
+	NODE_ENV=test karma start karma.watch.conf.js
 
 test-once:
-	karma start karma.single.conf.js
+	NODE_ENV=test karma start karma.single.conf.js
 	@$(PRINT_OK)
 
 sauce:
-	karma start karma.ci.conf.js
+	NODE_ENV=test karma start karma.ci.conf.js
 	@$(PRINT_OK)
 
 lint:

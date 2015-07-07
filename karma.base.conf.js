@@ -4,7 +4,7 @@
 
 var path = require("path");
 var webpackConfig = require("./webpack.dev.config");
-webpackConfig.devServer.noInfo = true;
+webpackConfig.devServer.noInfo = false;
 
 module.exports = function (config) {
   config.set({
@@ -12,7 +12,6 @@ module.exports = function (config) {
     // karma only needs to know about the test bundle
     files: [
       "./node_modules/phantomjs-polyfill/bind-polyfill.js",
-      // "tests.jsdom.js",
       "tests.webpack.js"
     ],
     // run the bundle through the webpack and sourcemap plugins

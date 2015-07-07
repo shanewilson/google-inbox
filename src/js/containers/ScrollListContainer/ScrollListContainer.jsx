@@ -1,8 +1,8 @@
 /* @flow */
 
-import React from "react/addons";
+import React from "react";
 
-import ScrollList from "./ScrollList";
+import ScrollList from "../../components/ScrollList";
 
 class ScrollListContainer extends React.Component {
   render(): React.Element {

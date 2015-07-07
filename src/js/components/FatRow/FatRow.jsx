@@ -1,12 +1,12 @@
 /* @flow */
 
-import React from "react/addons";
+import React from "react";
 
-// function sum(numbers: Array<number>): string {
-//   return 1;
-// }
-//
-// sum([1, 2, "c"]);
+function sum(numbers) {
+  return 1;
+}
+
+sum([1, 2, "c"]);
 
 class FatRow extends React.Component {
 

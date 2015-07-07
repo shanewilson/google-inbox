@@ -33,7 +33,7 @@ config.plugins = config.plugins.concat([
       unused: true,
       if_return: true,
       join_vars: true,
-      drop_console: true
+      drop_console: false
     }
   }),
   new CompressionPlugin({

@@ -24,8 +24,6 @@ config.module.loaders = config.module.loaders.concat([
   {test: /\.jsx?$/, loaders: ["react-hot", "babel"], include: path.join(__dirname, "src")}
 ]);
 
-config.plugins = [
-  new webpack.NoErrorsPlugin()
-];
+config.plugins = config.plugins.concat([]);
 
 module.exports = config;

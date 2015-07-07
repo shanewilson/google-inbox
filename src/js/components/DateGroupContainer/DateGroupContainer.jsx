@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from "react/addons";
+import React from "react";
 
 import DateGroup from "./DateGroup";
 

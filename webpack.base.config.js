@@ -9,18 +9,19 @@ var embedFileSize = 65536;
 module.exports = {
   target: "web",
   devtool: "#source-map",
-  entry: "./src/entry.jsx",
+  entry: {
+    bundle: "./src/entry.jsx"
+  },
   output: {
     path: path.join(__dirname, "dist", "js"),
     pathInfo: true,
     publicPath: "/js/",
-    filename: "main.js",
-    modules: false,
-    chunkModules: false
+    filename: "bundle.js"
   },
   module: {
     preLoaders: [
-      {test: /\.jsx?$/, loader: "eslint-loader", include: path.join(__dirname, "src")}
+      {test: /\.jsx?$/, loader: "eslint-loader", include: path.join(__dirname, "src")},
+      // {test: /config\.js$/, loader: "envify-loader"}
     ],
     loaders: [
       {test: /\.json$/, loader: "json"},
@@ -34,7 +35,7 @@ module.exports = {
   },
   resolve: {
     extentions: ["", "js", "jsx"],
-    modulesDirectories: ["web_modules", "node_modules", "components"]
+    modulesDirectories: ["web_modules", "node_modules", "components", "containers", "views"]
     // alias: {
     //   react: path.resolve("./node_modules/react")
     // }
@@ -43,7 +44,12 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
+      },
+      __SENTRY_TOKEN__: JSON.stringify(process.env.SENTRY_TOKEN),
+      __DEV__: JSON.stringify(process.env.NODE_ENV === "production" ? false : true),
+      __FEATURE_1__: JSON.stringify(process.env.FEATURE_1 || false),
+      __FEATURE_2__: JSON.stringify(process.env.FEATURE_2 || false),
+
     })
   ]
 };

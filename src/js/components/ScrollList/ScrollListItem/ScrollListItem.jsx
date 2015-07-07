@@ -6,6 +6,7 @@ var {Component, PropTypes} = React;
 class ScrollListItem extends Component {
   render(): React.Element {
     var item = this.props.item;
+
     return (
       <li>
         {item.transactionId} - {item.type} - {item.submissionId} - {item.message} - {item.date}

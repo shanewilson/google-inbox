@@ -45,8 +45,7 @@
     "browser": true,
     "node": true,
     "mocha": true,
-    "phantomjs": true,
-
+    "phantomjs": true
   },
   "globals": {
     "expect": true

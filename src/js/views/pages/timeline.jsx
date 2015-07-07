@@ -11,55 +11,47 @@ class Timeline extends React.Component {
     var items = [
       {
         type: "biospeciman",
-        transactionId: 1,
-        submissionId: 1,
+        transactionId: "1",
+        submissionId: "1",
         message: "Blah blah",
         date: moment().format()
       }, {
         type: "biospeciman",
-        transactionId: 2,
-        submissionId: 1,
+        transactionId: "2",
+        submissionId: "1",
         message: "Blah blah",
         date: moment().format()
       }, {
         type: "biospeciman",
-        transactionId: 3,
-        submissionId: 2,
+        transactionId: "3",
+        submissionId: "2",
         message: "Blah blah",
         date: moment().format()
       }, {
         type: "biospeciman",
-        transactionId: 4,
-        submissionId: 2,
+        transactionId: "4",
+        submissionId: "2",
         message: "Blah blah",
         date: moment().format()
       }, {
         type: "file",
-        transactionId: 5,
-        submissionId: 3,
+        transactionId: "5",
+        submissionId: "3",
         message: "Blah blah",
         date: moment().format()
       }, {
         type: "file",
-        transactionId: 6,
-        submissionId: 3,
+        transactionId: "6",
+        submissionId: "3",
         message: "Blah blah",
         date: moment().format()
       }
     ];
 
     return (
-      <div>
-        <DateGroupContainer title="Today">
-          <ScrollListContainer items={ items } />
-        </DateGroupContainer>
-        <DateGroupContainer title="Yesterday">
-          <ScrollListContainer items={ items } />
-        </DateGroupContainer>
-        <DateGroupContainer title="This Month">
-          <ScrollListContainer items={ items } />
-        </DateGroupContainer>
-      </div>
+      <DateGroupContainer title="Blah">
+        <ScrollListContainer items={ items } />
+      </DateGroupContainer>
     );
   }
 }

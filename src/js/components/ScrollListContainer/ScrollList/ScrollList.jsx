@@ -6,9 +6,10 @@ import ScrollListItem from "./ScrollListItem";
 
 class ScrollList extends React.Component {
   render(): React.Element {
-    var items = this.props.items.map(item =>
-      <ScrollListItem key={item.transactionId} item={item} />
-    );
+    var items = this.props.items.map(item => {
+      return <ScrollListItem key={item.transactionId} item={item} />;
+    });
+
     return (
       <ul>
         {items}

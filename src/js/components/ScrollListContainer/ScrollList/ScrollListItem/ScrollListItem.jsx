@@ -17,8 +17,8 @@ class ScrollListItem extends Component {
 ScrollListItem.propTypes = {
   item: PropTypes.shape({
     type: PropTypes.string.isRequired,
-    submissionId: PropTypes.number.isRequired,
-    transactionId: PropTypes.number.isRequired,
+    submissionId: PropTypes.string.isRequired,
+    transactionId: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
   }).isRequired
